@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GUITARISTS</title>
+</head>    
+<style>
+    :root {
+  --scrollcolor: #fff;
+  --scrollbackground: #141e27;
+}
+* {
+  box-sizing: border-box;
+}
+html, body {
+  padding: 0;
+  margin: 0;
+  height: 10vh;
+}
+body {
+  background: #203239;
+}
+.title {
+  font-size: 2.5rem;
+  font-family: system-ui;
+  line-height: 1.1;
+  font-weight: 300;
+  color: #fff;
+  margin: 4rem auto 1rem;
+  width: 85%;
+  max-width: 128px;
+}
+.slider {
+  width: 85%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.slider__content {
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  display: flex;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  scrollbar-color: var(--scrollcolor) var(--scrollbackground);
+}
+.slider__content::-webkit-scrollbar {
+  height: 0.5rem;
+  width: 0.5rem;
+  border-radius: 1rem;
+  background: var(--scrollbackground);
+}
+.slider__content::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
+  background: var(--scrollcolor);
+}
+.slider__content::-webkit-scrollbar-track {
+  border-radius: 1rem;
+  background: var(--scrollbackground);
+}
+.slider__item {
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-width: 100%;
+  width: 100%;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 1;
+}
+@media (min-width: 460px) {
+  .slider__item {
+    aspect-ratio: 0.6666666667;
+    min-width: calc((100% / 2) - 2rem);
+ }
+}
+@media (min-width: 940px) {
+  .slider__item {
+    min-width: calc((100% / 3) - 4rem);
+ }
+}
+.slider__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.slider__info {
+  position: relative;
+  padding: 4rem 2rem 2rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(32, 50, 57, 0));
+}
+.slider__info h2 {
+  color: #fff;
+  font-family: system-ui;
+  line-height: 1.1;
+  font-weight: 300;
+  font-size: 1.75rem;
+  margin: 0;
+}
+.slider__nav {
+  margin: 1rem 0 4rem;
+  width: 100%;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+  align-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+@media (min-width: 460px) {
+  .slider__nav {
+    justify-content: flex-end;
+ }
+}
+.slider__nav__button {
+  margin: 0;
+  appearance: none;
+  border: 0;
+  border-radius: 2rem;
+  background: #fff;
+  color: #203239;
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  line-height: 1;
+  pointer-events: none;
+  transition: 0.2s ease-out;
+  opacity: 0.25;
+}
+.slider__nav__button--active {
+  opacity: 1;
+  pointer-events: auto;
+  cursor: pointer;
+}
+.paragraph-container {
+  margin-top: 20px;
+  font-family: #fffff;
+  text-align: center;
+}
+.paragraph {
+  font-family: #fffff;
+  display: none;
+}
+.paragraph.active {
+  display: block;
+}
+.paragraph {
+  display:none;
+  color: white;
+}
+.button {
+  background-color: #fffff; 
+  color: black; 
+  padding: 10px 20px; 
+  border-radius: 20px; 
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none; 
+  display: inline-block;
+}
+.button:hover {
+  background-color: #555; 
+</style>
+<body>
+  <div class="slider" x-data="{start: true, end: false}" style="padding-top: 150px;">
+    <div class="slider__content" x-ref="slider" x-on:scroll.debounce="$refs.slider.scrollLeft == 0 ? start = true : start = false; Math.abs(($refs.slider.scrollWidth - $refs.slider.offsetWidth) - $refs.slider.scrollLeft) < 5 ? end = true : end = false;">
+      <div class="slider__item">
+        <img class="slider__image" src="https://pos.bassandtreble.shop/uploads/images/products/1598785145-Guitar_copy_2.png" alt="Image">
+        <div class="slider__info">
+          <div class="paragraph-container">
+            <p class="paragraph active">LyxPro 39" Stratocaster Solid Body Beginner Electric Guitar</p>
+          </div>
+        </div>
+      </div>
+      <div class="slider__item">
+        <img class="slider__image" src="https://img.lazcdn.com/g/p/5a79017138bd044b11ed65f841a044b4.jpg_720x720q80.jpg" alt="Image">
+        <div class="slider__info">
+          <div class="paragraph-container">
+            <p class="paragraph active">Cort G110 G Series Double Cutaway HSS Electric Guitar</p>
+          </div>
+        </div>
+      </div>
+      <div class="slider__item">
+        <img class="slider__image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5U2RfCLdgO4INNJD0Hx6Aa-MWKDdlXWZUAg&usqp=CAU" alt="Image">
+        <div class="slider__info">
+          <div class="paragraph-container">
+            <p class="paragraph active">Encore Blaster E60 Electric Guitar</p>
+          </div>
+        </div>
+      </div>
+      <div class="slider__item">
+        <img class="slider__image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLsduW2KC4SKFaGqHzkOPVvy9jXfIgM2B5Zg&usqp=CAU" alt="Image">
+        <div class="slider__info">
+          <div class="paragraph-container">
+            <p class="paragraph active">Encore 3/4 Electric Guitar, Gloss Red</p>
+          </div>
+        </div>
+      </div>
+      <div class="slider__item">
+        <img class="slider__image" src="https://jollymusic.com.ph/cdn/shop/products/zz_3cf2b91f-cea6-43ad-ab89-fb676db0009c.jpg?v=1668148302" alt="Image">
+        <div class="slider__info">
+          <div class="paragraph-container">
+            <p class="paragraph active">Yamaha Pacifica Standard Plus PACS+12M Sparkle Blue Electric Guitar</p>
+          </div>
+        </div>
+      </div>
+      <div class="slider__item">
+        <img class="slider__image" src="https://guitarparadise.com.au/cdn/shop/products/Gibson-Les-Paul-Classic-Translucent-Cherry-1.jpg?v=1676526145" alt="Image">
+        <div class="slider__info">
+          <div class="paragraph-container">
+            <p class="paragraph active">Lightfoot Sh DLC Electric Guitar Vintage Cherry</p>
+          </div>
+        </div>
+      </div>
+      <div class="slider__item">
+        <img class="slider__image" src="https://media.guitarcenter.com/is/image/MMGS7/L69588000003000-00-600x600.jpg" alt="Image">
+        <div class="slider__info">
+          <div class="paragraph-container">
+            <p class="paragraph active">Gibson Les Paul Traditional Pro V Satin Electric Guitar</p>
+          </div>
+        </div>
+      </div>
+      <div class="slider__item">
+        <img class="slider__image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqo2mUSCpDuthmIrc4O-Mm6PIqGWyE-IMisfG5C_bCTjgFmD5hOuIYIGtsatAUOf6kYSY&usqp=CAU" alt="Image">
+        <div class="slider__info">
+          <div class="paragraph-container">
+            <p class="paragraph active">Ibanez RGR221PA AQB Electric Guitar</p>
+          </div>
+        </div>
+      </div>
+      <div class="slider__item">
+        <img class="slider__image" src="https://www.tomleemusic.ca/media/catalog/product/cache/7b59eeedc8a9391b10c489498e31e772/2/1/210451.png" alt="Image">
+        <div class="slider__info">
+          <div class="paragraph-container">
+            <p class="paragraph active">Forde Lp- Style Single-Cut Electric Guitar, Black</p>
+          </div>
+        </div>
+      </div>
+      <div class="slider__item">
+        <img class="slider__image" src="https://sc1.musik-produktiv.com/pic-010104490l/jackson-king-v-kv-gbk.jpg" alt="Image">
+        <div class="slider__info">
+          <div class="paragraph-container">
+            <p class="paragraph active">Jackson King V KV GBK Electric Guitar</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slider__nav" style="display: flex;justify-content: center;">
+      <button class="slider__nav__button" x-on:click="$refs.slider.scrollBy({left: $refs.slider.offsetWidth * -1, behavior: 'smooth'});" x-bind:class="start ? '' : 'slider__nav__button--active'">Previous</button>
+      <button class="slider__nav__button" x-on:click="$refs.slider.scrollBy({left: $refs.slider.offsetWidth, behavior: 'smooth'});" x-bind:class="end ? '' : 'slider__nav__button--active'">Next</button>
+      <button class="button">Buy</button>
+    </div>
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.10.2/cdn.js"></script>
+</body>
+</html>
